@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ManeskinDomain.Model.Query>
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+@if (!Model.Any())
+{
+    <p>No songs found with the specified duration.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in Model)
+            {
+                <tr>
+                    <td>@song.Tittle</td>
+                    <td>@song.Duration</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

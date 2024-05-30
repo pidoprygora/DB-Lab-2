@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ManeskinDomain.Model.Festival>
+
+@{
+    ViewData["Title"] = "This perfomance was a part of fastival";
+    }
+
+<h1>Perfomances which took place in this city @ViewBag.Date</h1>
+
+<p>
+    @Html.ActionLink("Add new gig", "Create", new { perfomanceId = ViewBag.PerfomanceId })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PerfomanceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FestivalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerfomanceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FestivalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.City)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FestivalId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FestivalId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FestivalId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

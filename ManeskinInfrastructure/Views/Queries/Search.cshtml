@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ManeskinDomain.Model.Query>
+
+@{
+    ViewData["Title"] = "Search ";
+}
+
+<h2>Search Songs by duration</h2>
+
+<form asp-action="Search" method="post">
+    <div class="form-group">
+        <label for="duration">Enter song duration (in seconds):</label>
+        <input type="number" class="form-control" id="duration" name="duration" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+<h2>Search Albums by minimum number of songs</h2>
+
+<form asp-action="SearchAlbums" method="post">
+    <div class="form-group">
+        <label for="songCount">Enter minimum number of songs:</label>
+        <input type="number" class="form-control" id="songCount" name="songCount" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<h2>Search Cities by Minimum Tours Visited</h2>
+
+<form asp-action="SearchCitiesInTwoTours" method="post">
+    <div class="form-group">
+        <label for="tourCount">Enter minimum number of tours:</label>
+        <input type="number" class="form-control" id="tourCount" name="tourCount" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<h2>Search Locations by Minimum Number of Concerts</h2>
+
+<form asp-action="SearchLocations" method="post">
+    <div class="form-group">
+        <label for="concertCount">Enter minimum number of concerts:</label>
+        <input type="number" class="form-control" id="concertCount" name="concertCount" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>

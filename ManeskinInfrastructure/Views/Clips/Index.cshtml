@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ManeskinDomain.Model.Clip>
+
+@{
+    ViewData["Title"] = "Clip for this song";
+}
+
+<h1>Videoclip @ViewBag.SongName</h1>
+
+<p>
+    @Html.ActionLink("Add videoclip", "Create", new { songId = ViewBag.SongId })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Release date
+            </th>
+            <th>
+                link
+            </th>
+            <th>
+                Song
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRelease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MadeBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Song.Tittle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VideoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VideoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VideoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

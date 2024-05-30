@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ManeskinDomain.Model.Query>
+
+@{
+    ViewData["Title"] = "Search Album Results";
+}
+
+<h2>Search Album Results</h2>
+
+@if (!Model.Any())
+{
+    <p>No albums found with the specified minimum number of songs.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Album Title</th>
+                <th>Number of Songs</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var album in Model)
+            {
+                <tr>
+                    <td>@album.Tittle</td>
+                    <td>@album.SongCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
